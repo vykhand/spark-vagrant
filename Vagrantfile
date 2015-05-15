@@ -119,18 +119,10 @@ config.vm.network :forwarded_port, guest: 8080, host: 1234
   #
   #   chef.validation_client_name = "ORGNAME-validator"
 
-config.vm.provision "chef_solo" do |chef|
-    chef.add_recipe "apache_spark"  
-end 
+#config.vm.provision "chef_solo" do |chef|
+#    chef.add_recipe "apache_spark"  
+#end 
 
-#config.vm.provision "shell", inline: <<-SHELL
-#yum install -y ntp
-#yum install -y wget
-#chkconfig ntpd on
-#service ntpd start
-#wget http://public-repo-1.hortonworks.com/ambari/centos6/1.x/updates/1.4.3.38/ambari.repo 
-#cp ambari.repo /etc/yum.repos.d
-#yum install -y ambari-server
-#SHELL
+config.vm.provision "shell", path: "provision.sh"
 
 end
