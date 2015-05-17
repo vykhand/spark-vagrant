@@ -10,7 +10,9 @@ Currently software installed on the box is the following:
 
   * [Apache spark 1.3.1 prebuilt for Hadoop 2.4+](https://spark.apache.org/downloads.html)
   * [Anaconda Python Scientific Distribution 2.2.0 with Python 2.7](http://continuum.io/downloads#all)
- 
+
+The box is based on default Vagrant chef/centos65 image that can be taken from [here](https://atlas.hashicorp.com/chef/boxes/centos-6.5).
+
 ## Other configuration
 
 The box configures the following ports:
@@ -30,3 +32,37 @@ cd spark-vagrant
 vagrant up
 ```
 
+This will bring up the box, after downloading base image and installing all the software.
+
+Then you just need to connect to it from your host machine by opening a browser : localhost:12000, localhost:4040
+
+Note 4040 won't work until you have some tasks running.
+
+## Downloading and running repackaged  box
+
+If you want to avoid building the box, I've packaged the box for you and uploaded it to my Dropbox. I can't promise that it will be available at all times. 
+
+To create your own image based on my box, go to some directory suitable for VM and run:
+
+```
+vagrant box add spark-1.3.1-ipython <address of my box coming later>
+vagrant init spark-1.3.1-ipython
+```
+
+Then add the following configuration to your Vagrant file:
+
+```
+config.vm.network :forwarded_port, guest: 12000, host: 12000
+config.vm.network :forwarded_port, guest: 4040, host: 4040
+```
+
+then run **vagrant up**, wait for the box to come up, login as spark/spark and start ipython:
+
+```
+nohup pyspark &
+```
+
+-----
+With best regards,
+
+Andrey Vylhodtsev
