@@ -8,10 +8,25 @@ It will be convenient for those doing tutorials or willing to do "data science" 
 
 Currently software installed on the box is the following:
 
-  * [Apache spark 1.3.1](http://d3kbcqa49mib13.cloudfront.net/spark-1.3.1-bin-hadoop2.4.tgz)
-  * (Anaconda Python Scientific Distribution 2.2.0 with Python 2.7)[https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda-2.2.0-Linux-x86_64.sh]
-  
-  ## Other configuration
+  * [Apache spark 1.3.1 prebuilt for Hadoop 2.4+](https://spark.apache.org/downloads.html)
+  * [Anaconda Python Scientific Distribution 2.2.0 with Python 2.7](http://continuum.io/downloads#all)
+ 
+## Other configuration
 
 The box configures the following ports:
-   * 
+   * 12000 for ipython
+   * 4040 for Spark task manager console
+   * 2222 for ssh
+   
+
+## Using the box
+
+   * Install Vagrant, VirtualBox and git
+   * go to some directory you want to use for VM, and run the following:
+
+```
+git clone https://github.com/vykhand/spark-vagrant
+cd spark-vagrant
+vagrant up
+```
+
