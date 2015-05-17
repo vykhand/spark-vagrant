@@ -45,7 +45,7 @@ If you want to avoid building the box, I've packaged the box for you and uploade
 To create your own image based on my box, go to some directory suitable for VM and run:
 
 ```
-vagrant box add https://www.dropbox.com/s/coi0i4i02j1sshw/spark-1.3.1-ipython.box?dl=1
+vagrant box add spark-1.3.1-ipython https://www.dropbox.com/s/coi0i4i02j1sshw/spark-1.3.1-ipython.box?dl=1
 vagrant init spark-1.3.1-ipython
 ```
 
